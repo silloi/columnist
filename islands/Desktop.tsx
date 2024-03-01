@@ -63,36 +63,42 @@ export default function Desktop() {
               value={text1}
               onInput={(e) => setText1(e.currentTarget.value.trim())}
               class="w-80 h-40"
+              style={{ lineBreak: "anywhere" }}
             />
             <p class="text-center mb-2">{PILCROW}</p>
             <textarea
               value={text2}
               onInput={(e) => setText2(e.currentTarget.value.trim())}
               class="w-80 h-40"
+              style={{ lineBreak: "anywhere" }}
             />
             <p class="text-center mb-2">{PILCROW}</p>
             <textarea
               value={text3}
               onInput={(e) => setText3(e.currentTarget.value.trim())}
               class="w-80 h-40"
+              style={{ lineBreak: "anywhere" }}
             />
             <p class="text-center mb-2">{PILCROW}</p>
             <textarea
               value={text4}
               onInput={(e) => setText4(e.currentTarget.value.trim())}
               class="w-80 h-40"
+              style={{ lineBreak: "anywhere" }}
             />
             <p class="text-center mb-2">{PILCROW}</p>
             <textarea
               value={text5}
               onInput={(e) => setText5(e.currentTarget.value.trim())}
               class="w-80 h-40"
+              style={{ lineBreak: "anywhere" }}
             />
             <p class="text-center mb-2">{PILCROW}</p>
             <textarea
               value={text6}
               onInput={(e) => setText6(e.currentTarget.value.trim())}
               class="w-80 h-40"
+              style={{ lineBreak: "anywhere" }}
             />
             <p class="text-center mb-2">◾️</p>
           </div>

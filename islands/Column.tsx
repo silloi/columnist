@@ -4,14 +4,6 @@ interface ColumnProps {
   publishDate: string;
 }
 
-// Divide text into rows of 14 and 18 character
-const divideTextIntoRows = (text: string) => {
-  const [head, tail] = [text.slice(0, 14 * 6), text.slice(14 * 6)];
-  const headRows = head.match(/.{1,14}/g) || [];
-  const tailRows = tail.match(/.{1,18}/g) || [];
-  return [...headRows, ...tailRows];
-};
-
 export default function Counter(props: ColumnProps) {
   return (
     <div class="pt-2 px-2 bg-white">
@@ -21,12 +13,16 @@ export default function Counter(props: ColumnProps) {
             {props.title}
           </span>
         </div>
-        <div style={{ height: "18.25rem", width: "52.5rem" }}>
-          {divideTextIntoRows(props.content + "。").map((row) => (
-            <p>
-              {row}
-            </p>
-          ))}
+        <div
+          style={{
+            height: "18.25rem",
+            width: "52.5rem",
+            lineBreak: "anywhere",
+          }}
+        >
+          <p>
+            {props.content + "。"}
+          </p>
         </div>
       </div>
       <div class="w-full h-6">

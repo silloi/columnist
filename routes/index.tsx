@@ -1,5 +1,6 @@
 import { useSignal } from "@preact/signals";
 import { HR } from "../components/HR.tsx";
+import Layout from "../components/Layout.tsx";
 import Counter from "../islands/Counter.tsx";
 import Column from "../islands/Column.tsx";
 
@@ -18,7 +19,7 @@ export default function Home() {
   const PILCROW = "▼";
 
   return (
-    <div class="px-4 py-8 mx-auto bg-[#f8f8f8] font-serif">
+    <Layout isLoggedIn={false}>
       <div class="max-w-screen-lg mx-auto flex flex-col items-center justify-center">
         <img
           class="my-6"
@@ -40,6 +41,6 @@ export default function Home() {
         />
         <HR />
       </div>
-    </div>
+    </Layout>
   );
 }

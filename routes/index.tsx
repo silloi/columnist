@@ -1,4 +1,5 @@
 import { useSignal } from "@preact/signals";
+import { HR } from "../components/HR.tsx";
 import Counter from "../islands/Counter.tsx";
 import Column from "../islands/Column.tsx";
 
@@ -37,7 +38,7 @@ export default function Home() {
           content={zokuDarakuron.join(PILCROW) + "。"}
           publishDate={Temporal.PlainDate.from("2024-12-31")}
         />
-        <hr class="my-2 border-black" style={{ width: "52.5rem" }} />
+        <HR />
       </div>
     </div>
   );

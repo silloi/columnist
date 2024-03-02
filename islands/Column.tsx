@@ -1,35 +1,62 @@
+import { formatPlainDate } from "../lib/date.ts";
+
+interface TitleBoxProps {
+  title: string;
+}
+
+interface ArticleFooterProps {
+  publishDate: Temporal.PlainDate;
+}
+
 interface ColumnProps {
   title: string;
   content: string;
-  publishDate: string;
+  publishDate: Temporal.PlainDate;
 }
 
-export default function Counter(props: ColumnProps) {
+function TitleBox(props: TitleProps) {
   return (
-    <div class="pt-2 px-2 bg-white">
-      <div class="[writing-mode:vertical-rl] font-serif">
-        <div class="[writing-mode:horizontal-tb] w-36 h-16 float-left flex justify-center items-center">
-          <span class="p-2 border-2 border-black text-2xl">
-            {props.title}
-          </span>
-        </div>
+    <div class="[writing-mode:horizontal-tb] w-32 h-16 mx-2 absolut float-left flex justify-center items-center">
+      <span class="border-2 border-black text-2xl px-3 py-2">
+        {props.title}
+      </span>
+    </div>
+  );
+}
+
+function MetadataBox(props: FooterProps) {
+  return (
+    <>
+      <div class="float-right" style={{ width: "46.5rem" }}></div>
+      <div class="[writing-mode:horizontal-tb] font-sans float-right clear-both w-24 h-4 px-1 mb-1">
+        {formatPlainDate(props.publishDate)}
+      </div>
+    </>
+  );
+}
+
+export default function ColumnArticle(props: ColumnProps) {
+  return (
+    <article>
+      <div
+        class="[writing-mode:vertical-rl]"
+        style={{
+          height: "18.25rem",
+          width: "52.5rem",
+        }}
+      >
+        <TitleBox title={props.title} />
+        <MetadataBox publishDate={props.publishDate} />
         <div
           style={{
-            height: "18.25rem",
-            width: "52.5rem",
             lineBreak: "anywhere",
           }}
         >
           <p>
-            {props.content + "。"}
+            {props.content}
           </p>
         </div>
       </div>
-      <div class="w-full h-6">
-        <span class="text-left">
-          {props.publishDate}
-        </span>
-      </div>
-    </div>
+    </article>
   );
 }

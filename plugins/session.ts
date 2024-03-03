@@ -36,7 +36,6 @@ async function setSessionState(
 
   ctx.state.sessionUser = user;
 
-  console.log("mddwr");
   return await ctx.next();
 }
 

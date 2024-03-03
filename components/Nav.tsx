@@ -7,7 +7,7 @@ interface NavProps {
 export default function Nav({ sessionUser }: NavProps) {
   const loggedInMenus = [
     { name: "New", href: "/daily/new" },
-    { name: "My Page", href: "/my" },
+    { name: "原稿一覧", href: "/daily/draft" },
     { name: "Logout", href: "/logout" },
   ];
 

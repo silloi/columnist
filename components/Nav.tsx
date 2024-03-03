@@ -5,11 +5,8 @@ interface NavProps {
 }
 
 export default function Nav({ sessionUser }: NavProps) {
-  const menus = [
-    { name: "Home", href: "/" },
-  ];
-
   const loggedInMenus = [
+    { name: "New", href: "/daily/new" },
     { name: "My Page", href: "/my" },
     { name: "Logout", href: "/logout" },
   ];
@@ -21,14 +18,11 @@ export default function Nav({ sessionUser }: NavProps) {
   return (
     <div class="flex flex-wrap items-center justify-between p-4">
       <div>
-        Cocolumn
+        <a href="/">
+          Cocolumn
+        </a>
       </div>
       <ul class="flex gap-6">
-        {menus.map((menu) => (
-          <li>
-            <a href={menu.href}>{menu.name}</a>
-          </li>
-        ))}
         {sessionUser
           ? (
             loggedInMenus.map((menu) => (

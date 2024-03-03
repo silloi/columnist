@@ -5,11 +5,13 @@
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $api_joke from "./routes/api/joke.ts";
+import * as $daily_draft_id_ from "./routes/daily/draft/[id].tsx";
+import * as $daily_index from "./routes/daily/index.tsx";
+import * as $daily_new from "./routes/daily/new.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $login from "./routes/login.tsx";
 import * as $my from "./routes/my.tsx";
-import * as $new from "./routes/new.tsx";
 import * as $Column from "./islands/Column.tsx";
 import * as $Counter from "./islands/Counter.tsx";
 import * as $Desktop_copy from "./islands/Desktop copy.tsx";
@@ -21,11 +23,13 @@ const manifest = {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
     "./routes/api/joke.ts": $api_joke,
+    "./routes/daily/draft/[id].tsx": $daily_draft_id_,
+    "./routes/daily/index.tsx": $daily_index,
+    "./routes/daily/new.tsx": $daily_new,
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/index.tsx": $index,
     "./routes/login.tsx": $login,
     "./routes/my.tsx": $my,
-    "./routes/new.tsx": $new,
   },
   islands: {
     "./islands/Column.tsx": $Column,

@@ -6,6 +6,7 @@ import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $daily_draft_id_ from "./routes/daily/draft/[id].tsx";
+import * as $daily_draft_id_edit from "./routes/daily/draft/[id]/edit.tsx";
 import * as $daily_index from "./routes/daily/index.tsx";
 import * as $daily_new from "./routes/daily/new.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
@@ -14,7 +15,6 @@ import * as $login from "./routes/login.tsx";
 import * as $my from "./routes/my.tsx";
 import * as $Column from "./islands/Column.tsx";
 import * as $Counter from "./islands/Counter.tsx";
-import * as $Desktop_copy from "./islands/Desktop copy.tsx";
 import * as $Desktop from "./islands/Desktop.tsx";
 import { type Manifest } from "$fresh/server.ts";
 
@@ -24,6 +24,7 @@ const manifest = {
     "./routes/_app.tsx": $_app,
     "./routes/api/joke.ts": $api_joke,
     "./routes/daily/draft/[id].tsx": $daily_draft_id_,
+    "./routes/daily/draft/[id]/edit.tsx": $daily_draft_id_edit,
     "./routes/daily/index.tsx": $daily_index,
     "./routes/daily/new.tsx": $daily_new,
     "./routes/greet/[name].tsx": $greet_name_,
@@ -34,7 +35,6 @@ const manifest = {
   islands: {
     "./islands/Column.tsx": $Column,
     "./islands/Counter.tsx": $Counter,
-    "./islands/Desktop copy.tsx": $Desktop_copy,
     "./islands/Desktop.tsx": $Desktop,
   },
   baseUrl: import.meta.url,

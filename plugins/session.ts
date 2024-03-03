@@ -12,18 +12,15 @@ export interface State {
 
 export type SignedInState = Required<State>;
 
-export function assertSignedIn(
-  ctx: { state: State },
-): asserts ctx is { state: SignedInState } {
+export function assertSignedIn(ctx: {
+  state: State;
+}): asserts ctx is { state: SignedInState } {
   if (ctx.state.sessionUser === undefined) {
     throw new UnauthorizedError("User must be signed in");
   }
 }
 
-async function setSessionState(
-  req: Request,
-  ctx: FreshContext<State>,
-) {
+async function setSessionState(req: Request, ctx: FreshContext<State>) {
   if (ctx.destination !== "route") return await ctx.next();
 
   // Initial state
@@ -39,10 +36,7 @@ async function setSessionState(
   return await ctx.next();
 }
 
-async function ensureSignedIn(
-  _req: Request,
-  ctx: FreshContext<State>,
-) {
+async function ensureSignedIn(_req: Request, ctx: FreshContext<State>) {
   assertSignedIn(ctx);
   return await ctx.next();
 }
@@ -69,7 +63,7 @@ export default {
       middleware: { handler: setSessionState },
     },
     {
-      path: "/account",
+      path: "/daily/new",
       middleware: { handler: ensureSignedIn },
     },
     {

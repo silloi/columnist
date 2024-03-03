@@ -1,12 +1,23 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { ulid } from "$std/ulid/mod.ts";
-import { assertSignedIn, State } from "../../plugins/session.ts";
-import { redirect } from "../../utils/http.ts";
-import { createItem } from "../../utils/db.ts";
-import Layout from "../../components/Layout.tsx";
-import Desktop from "../../islands/Desktop.tsx";
+import { assertSignedIn, State } from "../../../../plugins/session.ts";
+import { redirect } from "../../../../utils/http.ts";
+import { createItem, getItem, Item } from "../../../../utils/db.ts";
+import Layout from "../../../../components/Layout.tsx";
+import Desktop from "../../../../islands/Desktop.tsx";
 
 export const handler: Handlers<undefined, State> = {
+  async GET(_req, ctx) {
+    assertSignedIn(ctx);
+
+    const draft = await getItem(ctx.params.id);
+    if (draft === null) return await ctx.renderNotFound();
+    if (draft.userLogin !== ctx.state.sessionUser.login) {
+      return await ctx.renderNotFound();
+    }
+
+    return ctx.render(draft);
+  },
   async POST(req, ctx) {
     assertSignedIn(ctx);
 
@@ -26,7 +37,7 @@ export const handler: Handlers<undefined, State> = {
       typeof publishDate !== "string" ||
       publishDate === ""
     ) {
-      return redirect("/daily/new?error");
+      return redirect("/new?error");
     }
 
     const paragraphs = [
@@ -52,11 +63,25 @@ export const handler: Handlers<undefined, State> = {
   },
 };
 
-export default function New(props: PageProps<undefined, State>) {
+export default function New(props: PageProps<Item, State>) {
+  const PILCROW = "▼";
+  const PERIOD = "。";
+  const content = props.data.paragraphs.join(PILCROW) + PERIOD;
+
   return (
     <Layout sessionUser={props.state.sessionUser}>
       <div class="mx-auto flex max-w-screen-md flex-col items-center justify-center">
-        <Desktop type="new" />
+        <Desktop
+          title={props.data.title}
+          publishDate={props.data.publishDate}
+          paragraph1={props.data.paragraphs[0]}
+          paragraph2={props.data.paragraphs[1]}
+          paragraph3={props.data.paragraphs[2]}
+          paragraph4={props.data.paragraphs[3]}
+          paragraph5={props.data.paragraphs[4]}
+          paragraph6={props.data.paragraphs[5]}
+          type="edit"
+        />
       </div>
     </Layout>
   );

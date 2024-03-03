@@ -4,17 +4,17 @@ interface TitleBoxProps {
   title: string;
 }
 
-interface ArticleFooterProps {
+interface FooterProps {
   publishDate: Temporal.PlainDate;
 }
 
 interface ColumnProps {
   title: string;
-  content: string;
   publishDate: Temporal.PlainDate;
+  content: string;
 }
 
-function TitleBox(props: TitleProps) {
+function TitleBox(props: TitleBoxProps) {
   return (
     <div class="[writing-mode:horizontal-tb] w-32 h-16 mx-2 absolut float-left flex justify-center items-center">
       <span class="border-2 border-black text-2xl px-3 py-2">

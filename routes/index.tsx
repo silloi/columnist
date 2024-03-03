@@ -6,7 +6,7 @@ import { HR } from "../components/HR.tsx";
 import Counter from "../islands/Counter.tsx";
 import Column from "../islands/Column.tsx";
 
-export default function Home(props: PageProps<any, State>) {
+export default function Home(props: PageProps<undefined, State>) {
   const count = useSignal(3);
 
   const zokuDarakuron = [
@@ -22,7 +22,7 @@ export default function Home(props: PageProps<any, State>) {
 
   return (
     <Layout sessionUser={props.state?.sessionUser}>
-      <div class="max-w-screen-lg mx-auto flex flex-col items-center justify-center">
+      <div class="mx-auto flex max-w-screen-lg flex-col items-center justify-center">
         <img
           class="my-6"
           src="/logo.svg"
@@ -38,8 +38,8 @@ export default function Home(props: PageProps<any, State>) {
         <Counter count={count} />
         <Column
           title="正平正調"
-          content={zokuDarakuron.join(PILCROW) + "。"}
           publishDate={Temporal.PlainDate.from("2024-12-31")}
+          content={zokuDarakuron.join(PILCROW) + "。"}
         />
         <HR />
       </div>

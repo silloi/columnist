@@ -80,7 +80,6 @@ export default function New(props: PageProps<Item, State>) {
           paragraph4={props.data.paragraphs[3]}
           paragraph5={props.data.paragraphs[4]}
           paragraph6={props.data.paragraphs[5]}
-          type="edit"
         />
       </div>
     </Layout>

@@ -1,9 +1,9 @@
 // Copyright 2023-2024 the Deno authors. All rights reserved. MIT license.
 import { defineRoute } from "$fresh/server.ts";
-import { getItem } from "../../../utils/db.ts";
-import { assertSignedIn, State } from "../../../plugins/session.ts";
-import Layout from "../../../components/Layout.tsx";
-import Column from "../../../islands/Column.tsx";
+import { getItem } from "../../../../utils/db.ts";
+import { assertSignedIn, State } from "../../../../plugins/session.ts";
+import Layout from "../../../../components/Layout.tsx";
+import Column from "../../../../islands/Column.tsx";
 
 export default defineRoute<State>(async (_req, ctx) => {
   assertSignedIn(ctx);

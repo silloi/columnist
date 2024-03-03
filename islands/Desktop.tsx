@@ -10,16 +10,6 @@ interface DesctopProps {
   paragraph4?: string;
   paragraph5?: string;
   paragraph6?: string;
-  type: "new" | "edit";
-}
-
-function createSubmitButtonLabel(type: "new" | "edit") {
-  switch (type) {
-    case "new":
-      return "下書き保存";
-    case "edit":
-      return "下書き更新";
-  }
 }
 
 export default function Desktop(props: DesctopProps) {
@@ -137,7 +127,7 @@ export default function Desktop(props: DesctopProps) {
           </div>
         </div>
         <button type="submit">
-          {createSubmitButtonLabel(props.type)}
+          下書き保存
         </button>
       </form>
       <Column

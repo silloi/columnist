@@ -56,7 +56,7 @@ export default function New(props: PageProps<undefined, State>) {
   return (
     <Layout sessionUser={props.state.sessionUser}>
       <div class="mx-auto flex max-w-screen-md flex-col items-center justify-center">
-        <Desktop type="new" />
+        <Desktop />
       </div>
     </Layout>
   );

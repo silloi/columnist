@@ -1,4 +1,4 @@
-import { formatPlainDate } from "../lib/date.ts";
+import { formatPlainDate } from "../utils/date.ts";
 
 interface TitleBoxProps {
   title: string;

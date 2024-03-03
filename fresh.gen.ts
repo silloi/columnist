@@ -10,7 +10,6 @@ import * as $index from "./routes/index.tsx";
 import * as $login from "./routes/login.tsx";
 import * as $my from "./routes/my.tsx";
 import * as $new from "./routes/new.tsx";
-import * as $signup from "./routes/signup.tsx";
 import * as $Column from "./islands/Column.tsx";
 import * as $Counter from "./islands/Counter.tsx";
 import * as $Desktop_copy from "./islands/Desktop copy.tsx";
@@ -27,7 +26,6 @@ const manifest = {
     "./routes/login.tsx": $login,
     "./routes/my.tsx": $my,
     "./routes/new.tsx": $new,
-    "./routes/signup.tsx": $signup,
   },
   islands: {
     "./islands/Column.tsx": $Column,

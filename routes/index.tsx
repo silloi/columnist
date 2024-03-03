@@ -1,10 +1,12 @@
+import { PageProps } from "$fresh/server.ts";
 import { useSignal } from "@preact/signals";
-import { HR } from "../components/HR.tsx";
+import { State } from "../plugins/session.ts";
 import Layout from "../components/Layout.tsx";
+import { HR } from "../components/HR.tsx";
 import Counter from "../islands/Counter.tsx";
 import Column from "../islands/Column.tsx";
 
-export default function Home() {
+export default function Home(props: PageProps<any, State>) {
   const count = useSignal(3);
 
   const zokuDarakuron = [
@@ -19,7 +21,7 @@ export default function Home() {
   const PILCROW = "▼";
 
   return (
-    <Layout isLoggedIn={false}>
+    <Layout sessionUser={props.state?.sessionUser}>
       <div class="max-w-screen-lg mx-auto flex flex-col items-center justify-center">
         <img
           class="my-6"

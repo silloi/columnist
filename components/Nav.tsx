@@ -1,8 +1,10 @@
+import { User } from "../utils/db.ts";
+
 interface NavProps {
-  isLoggedIn: boolean;
+  sessionUser?: User;
 }
 
-export default function Nav({ isLoggedIn }: NavProps) {
+export default function Nav({ sessionUser }: NavProps) {
   const menus = [
     { name: "Home", href: "/" },
   ];
@@ -14,7 +16,6 @@ export default function Nav({ isLoggedIn }: NavProps) {
 
   const nonLoggedInMenus = [
     { name: "Login", href: "/login" },
-    { name: "Signup", href: "/signup" },
   ];
 
   return (
@@ -28,7 +29,7 @@ export default function Nav({ isLoggedIn }: NavProps) {
             <a href={menu.href}>{menu.name}</a>
           </li>
         ))}
-        {isLoggedIn
+        {sessionUser
           ? (
             loggedInMenus.map((menu) => (
               <li>

@@ -1,9 +1,10 @@
 import { Head } from "$fresh/runtime.ts";
 import type { ComponentChildren } from "preact";
+import { User } from "../utils/db.ts";
 import Nav from "./Nav.tsx";
 
 interface LayoutProps {
-  isLoggedIn: boolean;
+  sessionUser?: User;
   children: ComponentChildren;
 }
 
@@ -12,7 +13,7 @@ export default function Layout(props: LayoutProps) {
     <>
       <Head>
         <title>Fresh Auth</title>
-        <Nav isLoggedIn={props.isLoggedIn} />
+        <Nav sessionUser={props.sessionUser} />
       </Head>
       <div class="px-4 py-8 mx-auto max-w-screen-lg bg-[#f8f8f8] font-serif">
         {props.children}

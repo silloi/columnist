@@ -2,9 +2,9 @@
   "lock": false,
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
-    "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable-temporal -A -",
+    "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable-kv --unstable-temporal -A -",
     "manifest": "deno task cli manifest $(pwd)",
-    "start": "deno run --unstable-temporal -A --watch=static/,routes/ dev.ts",
+    "start": "deno run --unstable-kv --unstable-temporal -A --watch=static/,routes/ dev.ts",
     "build": "deno run -A dev.ts build",
     "preview": "deno run -A main.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update ."
@@ -29,7 +29,8 @@
     "tailwindcss": "npm:tailwindcss@3.3.5",
     "tailwindcss/": "npm:/tailwindcss@3.3.5/",
     "tailwindcss/plugin": "npm:/tailwindcss@3.3.5/plugin.js",
-    "$std/": "https://deno.land/std@0.211.0/"
+    "$std/": "https://deno.land/std@0.211.0/",
+    "kv_oauth/": "https://deno.land/x/deno_kv_oauth@v0.10.0/"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
